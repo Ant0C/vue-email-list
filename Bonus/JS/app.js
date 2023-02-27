@@ -5,6 +5,7 @@ createApp({
       return {
         message: 'Lista Email:',
         emails: []
+        
       }
     },
     
@@ -13,14 +14,16 @@ createApp({
             axios
                 .get('https://flynn.boolean.careers/exercises/api/random/mail')
                 .then((risp) => {
-                    for (i=0; i<10; i++) {
                     console.log(risp.data.response)
                     this.emails.push(risp.data.response)
-                    }
+    
                 })
             },
-        }, 
+        },
         mounted() {
-            this.printEmail()
+            for (i=0; i<10; i++) {
+                this.printEmail()
+            }
         }
 }).mount('#app')
+
